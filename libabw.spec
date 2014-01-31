@@ -5,9 +5,9 @@ Version:	0.0.1
 Release:	1
 License:	MPLv2.0
 Group:		Libraries
-URL:		http://www.freedesktop.org/wiki/Software/libabw/
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
 # Source0-md5:	92a82f736aeaf22204ee95bbbcdd69a1
+URL:		http://www.freedesktop.org/wiki/Software/libabw/
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
 BuildRequires:	gperf
@@ -44,25 +44,25 @@ supported: XHTML, raw, text.
 	--disable-silent-rules \
 	--disable-static \
 	--disable-werror \
+	%{nil}
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT/%{_libdir}/*.la
+rm $RPM_BUILD_ROOT%{_libdir}/*.la
 
 # we install API docs directly from build
-rm -rf $RPM_BUILD_ROOT/%{_docdir}/%{name}
+rm -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
