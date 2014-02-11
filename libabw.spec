@@ -6,12 +6,12 @@
 Summary:	A library for import of AbiWord files
 Summary(pl.UTF-8):	Biblioteka do importowania plików AbiWorda
 Name:		libabw
-Version:	0.0.1
+Version:	0.0.2
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	92a82f736aeaf22204ee95bbbcdd69a1
+# Source0-md5:	2d8c4255ae8ecd3fcc590fdecf7dc262
 URL:		http://www.freedesktop.org/wiki/Software/libabw/
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
