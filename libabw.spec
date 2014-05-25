@@ -2,22 +2,22 @@
 # Conditional build:
 %bcond_without	static_libs	# static library
 #
-%define		apiversion	0.0
+%define		apiversion	0.1
 Summary:	A library for import of AbiWord files
 Summary(pl.UTF-8):	Biblioteka do importowania plików AbiWorda
 Name:		libabw
-Version:	0.0.2
+Version:	0.1.0
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
-# Source0-md5:	2d8c4255ae8ecd3fcc590fdecf7dc262
+# Source0-md5:	f29f5ad99b36635fb566c55327b1905e
 URL:		http://www.freedesktop.org/wiki/Software/libabw/
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3.0.0
+BuildRequires:	librevenge-devel >= 0.0
 BuildRequires:	libstdc++-devel
-BuildRequires:	libwpd-devel >= 0.9
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
@@ -36,8 +36,10 @@ Summary:	Development files for libabw
 Summary(pl.UTF-8):	Pliki programistyczne biblioteki libabw
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	librevenge-devel >= 0.0
 Requires:	libstdc++-devel
-Requires:	libwpd-devel >= 0.9
+Requires:	libxml2-devel >= 2.0
+Requires:	zlib-devel
 
 %description devel
 This package contains the header files for developing applications
@@ -90,8 +92,7 @@ Obecnie obsługiwane są: XHTML, surowy, tekst.
 %build
 %configure \
 	--disable-silent-rules \
-	%{?with_static_libs:--enable-static} \
-	--disable-werror
+	%{?with_static_libs:--enable-static}
 
 %{__make}
 
@@ -115,7 +116,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc CREDITS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libabw-%{apiversion}.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libabw-%{apiversion}.so.0
+%attr(755,root,root) %ghost %{_libdir}/libabw-%{apiversion}.so.1
 
 %files devel
 %defattr(644,root,root,755)
