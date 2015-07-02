@@ -1,13 +1,13 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# static library
-#
+
 %define		apiversion	0.1
 Summary:	A library for import of AbiWord files
 Summary(pl.UTF-8):	Biblioteka do importowania plików AbiWorda
 Name:		libabw
 Version:	0.1.1
-Release:	1
+Release:	2
 License:	MPL v2.0
 Group:		Libraries
 Source0:	http://dev-www.libreoffice.org/src/libabw/%{name}-%{version}.tar.xz
@@ -65,6 +65,9 @@ Statyczna biblioteka libabw.
 Summary:	API documentation for libabw library
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libabw
 Group:		Documentation
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 API documentation for libabw library.
