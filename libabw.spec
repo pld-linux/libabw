@@ -10,14 +10,14 @@ Version:	0.1.2
 Release:	1
 License:	MPL v2.0
 Group:		Libraries
-Source0:	http://dev-www.libreoffice.org/src/libabw/%{name}-%{version}.tar.xz
+Source0:	https://dev-www.libreoffice.org/src/libabw/%{name}-%{version}.tar.xz
 # Source0-md5:	201f477df7ea90d362c389c145c0f352
-URL:		http://www.freedesktop.org/wiki/Software/libabw/
+URL:		https://wiki.documentfoundation.org/DLP/Libraries/libabw
 BuildRequires:	boost-devel
 BuildRequires:	doxygen
 BuildRequires:	gperf >= 3.0.0
 BuildRequires:	librevenge-devel >= 0.0
-BuildRequires:	libstdc++-devel
+BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	libxml2-devel >= 2.0
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
@@ -37,7 +37,7 @@ Summary(pl.UTF-8):	Pliki programistyczne biblioteki libabw
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	librevenge-devel >= 0.0
-Requires:	libstdc++-devel
+Requires:	libstdc++-devel >= 6:4.7
 Requires:	libxml2-devel >= 2.0
 Requires:	zlib-devel
 
